@@ -101,13 +101,13 @@ jobs:
           # # - 2023.1.0a25
           # # - 2023.1.0a12
         targetPlatform:
-          - StandaloneOSX # Build a macOS standalone (Intel 64-bit).
+          # - StandaloneOSX # Build a macOS standalone (Intel 64-bit).
           - StandaloneWindows64 # Build a Windows 64-bit standalone.
-          - StandaloneLinux64 # Build a Linux 64-bit standalone.
+          # - StandaloneLinux64 # Build a Linux 64-bit standalone.
           # - iOS # Build an iOS player.
           # - Android # Build an Android .apk.
           # - WebGL # WebGL.
-          - StandaloneWindows # Build a Windows standalone.
+          # - StandaloneWindows # Build a Windows standalone.
           # - WSAPlayer # Build an Windows Store Apps player. на винде
           # - PS4 # Build a PS4 Standalone. // тож не выйдет
           # - XboxOne # Build a Xbox One Standalone. // тож не выйдет
@@ -148,16 +148,16 @@ jobs:
       ###########################
       #          Build          #
       ###########################
-      - uses: game-ci/unity-builder@v2
-        with:
-          # projectPath: ${{ matrix.projectPath }}
-          # unityVersion: ${{ matrix.unityVersion }}
-          buildName: ${{ matrix.projectName }}
-          targetPlatform: ${{ matrix.targetPlatform }}
-          buildMethod: UnityBuilderAction.BuildScript.Build
-          # customParameters: -profile SomeProfile -someBoolean -someValue exampleValue
-          # cloudRunnerCluster: ${{ matrix.cloudRunnerCluster }}
-          allowDirtyBuild: true
+      # - uses: game-ci/unity-builder@v2
+        # with:
+          projectPath: ${{ matrix.projectPath }}
+          unityVersion: ${{ matrix.unityVersion }}
+          # buildName: ${{ matrix.projectName }}
+          # targetPlatform: ${{ matrix.targetPlatform }}
+          # buildMethod: UnityBuilderAction.BuildScript.Build
+          customParameters: -profile SomeProfile -someBoolean -someValue exampleValue
+          cloudRunnerCluster: ${{ matrix.cloudRunnerCluster }}
+          # allowDirtyBuild: true
 
       ###########################
       #          Upload         #
