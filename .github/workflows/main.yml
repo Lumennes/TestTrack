@@ -127,34 +127,36 @@ jobs:
       ###########################
       - uses: actions/cache@v3
         with:
-          path: Library
+          path: |
+            Library
+            Build
           key: Library-${{ matrix.projectName }}-${{ matrix.targetPlatform }}-linux
           restore-keys: |
             Library-${{ matrix.projectName }}-${{ matrix.targetPlatform }}-
             Library-${{ matrix.projectName }}-
             Library-
             
-      - uses: actions/cache@v3
-        with:
-          path: Build
-          key: Build-${{ matrix.projectName }}-${{ matrix.targetPlatform }}-linux
-          restore-keys: |
-            Build-${{ matrix.projectName }}-${{ matrix.targetPlatform }}-
-            Build-${{ matrix.projectName }}-
-            Build-
+      # - uses: actions/cache@v3
+        # with:
+          # path: Build
+          # key: Build-${{ matrix.projectName }}-${{ matrix.targetPlatform }}-linux
+          # restore-keys: |
+            # Build-${{ matrix.projectName }}-${{ matrix.targetPlatform }}-
+            # Build-${{ matrix.projectName }}-
+            # Build-
 
       ###########################
       #          Build          #
       ###########################
       - uses: game-ci/unity-builder@v2
         with:
-          #projectPath: ${{ matrix.projectPath }}
+          # projectPath: ${{ matrix.projectPath }}
           # unityVersion: ${{ matrix.unityVersion }}
           buildName: ${{ matrix.projectName }}
           targetPlatform: ${{ matrix.targetPlatform }}
           buildMethod: UnityBuilderAction.BuildScript.Build
-          #customParameters: -profile SomeProfile -someBoolean -someValue exampleValue
-          #cloudRunnerCluster: ${{ matrix.cloudRunnerCluster }}
+          # customParameters: -profile SomeProfile -someBoolean -someValue exampleValue
+          # cloudRunnerCluster: ${{ matrix.cloudRunnerCluster }}
           allowDirtyBuild: true
 
       ###########################
